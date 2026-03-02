@@ -1,0 +1,16 @@
+<div id="form-container">
+<h2>{{title}}</h2>
+<form id="form" [formGroup]="userDataForm" (ngSubmit)="sendData()">
+    <h3>Username</h3>
+    <input type="text" formControlName="username">
+    <h3>Email</h3>
+    <input type="text" formControlName="email">
+    <h3>Password</h3>
+    <input type="text" formControlName="password">
+    <br>
+    <div>
+        <small *ngIf="errorMessage">{{errorMessage}}</small>
+    </div>
+    <button class="submit_button" type="submit" [disabled]="!userDataForm.valid">Submit</button>
+</form>
+</div>

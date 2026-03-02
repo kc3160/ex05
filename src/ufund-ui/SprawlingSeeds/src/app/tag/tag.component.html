@@ -1,0 +1,6 @@
+<label>{{tag.name}}</label>
+<div *ngIf="isAdmin" >
+    <input [(ngModel)]="tag.name">
+    <button (click)="delete()">X</button>
+    <button (click)="save()">Save</button>
+</div>

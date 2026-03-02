@@ -1,0 +1,58 @@
+<h2 class="Title"> Our Needs </h2>
+<ul class="needs">
+  <div class="Admin_UI" *ngIf="isAdmin()">
+    <h3>Admin Need Panel</h3>
+    <select class="select_type" [(ngModel)]="typeSelected" (change)="onTypeChange()">
+      <option value="">Select a need type</option>
+      <option value="tool">Tool</option>
+      <option value="fertilizer">Fertilizer</option>
+      <option value="seed">Seed</option>
+      <option value="bundle">Bundle</option>
+    </select> 
+    <div *ngIf="typeSelected">
+      <div class="button_group">
+      <p>NAME:</p>
+      <input class="name_button" [(ngModel)]="newNeed.name" placeholder="Name" />
+      <p>QUANTITY:</p>
+      <input class="quantity_button" [(ngModel)]="newNeed.quantity"placeholder="Quantity" type="number" />
+      <p>COST:</p>
+      <input class="cost_button"[(ngModel)]="newNeed.cost"  placeholder="Cost" type="number"/>
+      </div>
+
+      <div class="Used_Check" *ngIf="typeSelected === 'tool'">
+        <label>
+          <input type="checkbox" [(ngModel)]="asTool(newNeed).used" /> USED
+        </label>
+      </div>
+
+      <div class="Organic_Check" *ngIf="typeSelected === 'fertilizer'">
+        <label>
+          <input type="checkbox" [(ngModel)]="asFert(newNeed).organic" /> ORGANIC
+        </label>
+      </div>
+      <div class="Discount_Check" *ngIf="typeSelected ==='bundle'">
+        <p>DISCOUNT:</p>
+        <input type='number' [(ngModel)]="asBun(newNeed).discount" placeholder="enter a decimal"/>  
+      </div>
+      <button class="Add_Need" (click)="addNeed()">Add Need</button>
+    </div>
+    
+  </div>
+
+  <div class="NeedsList">
+  <li *ngFor="let need of needs; trackBy: needById">
+    <a routerLink="/detail/{{need.id}}">
+      <span class='badge'>{{need.id}}</span> {{need.name}}
+    </a>
+    <div *ngIf="isAdmin()">
+      <button (click)="delete(need)">X</button>
+    </div>
+  </li>
+  </div>
+</ul>
+
+<div *ngIf="isAdmin()">
+  <h2>Tags</h2>
+  <app-tag-menu [compact]="false"></app-tag-menu>
+</div>
+

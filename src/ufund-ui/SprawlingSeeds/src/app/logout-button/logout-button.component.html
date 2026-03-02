@@ -1,0 +1,7 @@
+<ng-container *ngIf="service.sessionId != undefined">
+    <label *ngIf="service.isAdmin; else helperview"><strong>Admin</strong></label>
+    <ng-template #helperview>
+        <label><strong>Helper</strong></label>
+    </ng-template>
+</ng-container><br>
+<button *ngIf="service.sessionId != undefined" (click)="logout()">Logout</button>

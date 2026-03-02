@@ -1,0 +1,80 @@
+h2{
+    color:white;
+}
+
+.Admin_UI{
+    margin-left:-20px;  
+    margin-top:50px;
+    background-color:#EADCC9;
+    width:173px;
+    border-radius:5px;
+    padding-bottom:10px;
+}
+
+.name_button, .quantity_button, .cost_button {
+    width:150px;
+    padding: 5px;
+    font-size:14px;
+}
+
+.select_type{
+    border-radius:4px;
+}
+
+.button_group{
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    flex-wrap:wrap;
+
+}
+
+.Add_Need{
+    padding: 9px 25px;
+    background-color: green;
+    border:none;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+    color:white;
+
+    margin-top:10px;
+    
+}
+
+.Add_Need:hover{
+    background-color:lightgreen;
+}
+
+.Used_Check{
+    margin-top:10px;
+}
+
+.Organic_Check{
+    margin-top:10px;
+}
+
+.Discount_Check{
+    margin-top:10px;
+}
+
+.NeedsList{
+    display:flex;
+    justify-content: center;
+    flex-direction:row;
+    width:70%;
+    margin-left:20px;
+    margin-right:20px;
+    border-radius:8px;
+    margin-top:10px;
+    background-color:#EADCC9;
+}
+
+*{
+    /*background-color:darkgrey;*/
+}
+
+.Title{
+    display:flex;
+    justify-content: center;
+}

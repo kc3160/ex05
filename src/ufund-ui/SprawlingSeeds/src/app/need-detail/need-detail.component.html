@@ -1,0 +1,88 @@
+<div class="need_detail" *ngIf="need">
+  <h2 class="Need_tite">{{ need.name }} Details</h2>
+  <div>
+    <label class="Id">Id:</label> {{ need.id }}
+  </div>
+  <section class="info">
+    <div class="descriptor">
+      <label class="descriptor_txt">Name:</label>
+      <input *ngIf= "isAdmin() && !this.inBun; else rName" [(ngModel)]="need.name" />
+      <ng-template #rName>{{ need.name }}</ng-template>
+    </div>  
+    <div>
+      <label>Quantity:</label>
+      <input *ngIf= "isAdmin() && !this.inBun; else rQuantity" [(ngModel)]="need.quantity" type="number" />
+      <ng-template #rQuantity>{{ need.quantity }}</ng-template>
+    </div>
+    <div>
+      <label>Cost:</label>
+      <input *ngIf= "isAdmin() && !this.inBun; else rCost" [(ngModel)]="need.cost" type="number" />
+      <ng-template #rCost>{{ need.cost }}</ng-template>
+    </div>
+    <div *ngIf= "need.type === 'tool'">
+      <label>Used:</label>
+      <input *ngIf= "isAdmin() && !this.inBun; else rUsed" type="checkbox" [(ngModel)]="asTool(need).used" />
+      <ng-template #rUsed>{{ asTool(need).used ? 'Yes' : 'No' }}</ng-template>
+    </div>
+
+    <div *ngIf="need.type === 'fertilizer'">
+      <label>Organic:</label>
+      <input *ngIf="this.isAdmin() && !this.inBun; else rOrganic" type="checkbox" [(ngModel)]="asFert(need).organic" />
+      <ng-template #rOrganic>{{ asFert(need).organic ? 'Yes' : 'No' }}</ng-template>
+    </div>
+
+
+    <div class='tags'>
+      <ng-container *ngIf="!isAdmin() || this.inBun; else tagAdmin">
+        <div *ngFor="let tag of tags">
+          <label>{{tag.name}}</label>
+        </div>
+      </ng-container>
+      <ng-template #tagAdmin>
+        <app-tag-dropdown *ngFor="let t of tags; trackBy tagTrack" [selected]="t.id" (changed)="changeTag($event)"></app-tag-dropdown>
+      </ng-template>
+      <!--  update save to also include saving tag changes!!-->
+    </div>
+
+
+  
+    <div *ngIf="need.type === 'bundle'">
+      <label>Discount:</label>
+      <input *ngIf="this.isAdmin(); else rDiscount" [(ngModel)]="this.asBun(need).discount" type="number"/> 
+      <ng-template #rDiscount>{{this.asBun(need).discount * 100}}%</ng-template>
+
+      <!-- needs to update the bundleNeeds -->
+      <!-- admin should popup some search tbing to add to the bundle -->
+      <ul>
+        <label>In this bundle:</label>
+        <li *ngFor="let n of bundleNeeds">
+          <app-need-detail [need]="n" [inBun] = "true"></app-need-detail> 
+          <div *ngIf="isAdmin()">
+            <button (click)="removeFromBun(n)">X</button>
+          </div>
+        </li>    
+      </ul> 
+      <div *ngIf="this.isAdmin()">
+        <label>Need Id:</label>
+        <input type="number" [(ngModel)]="bunAddId"/> 
+        <label>Quantity:</label>
+        <input type="number" [(ngModel)]="bunAddQ"/> 
+        <button (click)="addNeedToBundle()">Add Need</button> 
+      </div>
+    </div>
+  </section>
+
+  <div *ngIf="isAdmin() && !this.inBun">
+    <button (click)="save()">Save</button>
+  </div>
+
+  <div *ngIf="isRouted">
+    <div *ngIf="isValidUserForAdd()">
+      <button (click)="addNeedToBasket()">Add {{toAdd}} to basket</button>
+      <button (click)="decrementQuantity(1)">-</button>
+      <button (click)="incrementQuantity(1)">+</button>
+    </div>
+    <button (click)="goBack()">Back</button>
+  </div>
+</div>
+

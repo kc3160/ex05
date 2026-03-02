@@ -1,0 +1,31 @@
+
+p a{
+    display:inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+}
+
+p{
+    text-align:center;
+
+    background-color:white;
+    width:80%;
+    max-width:350px;
+    margin-left:100px;
+    margin:0 auto;
+    padding:10px;
+
+}
+
+a{
+    background-color:white; 
+    cursor:pointer;
+    transition: all 0.3s ease;
+    display:inline-block;
+    padding:5px 10px;
+}
+
+a:hover{
+    color:purple;
+}

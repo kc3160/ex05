@@ -1,0 +1,35 @@
+<h2>Need Search</h2>
+<div class="container">
+  <input class="primary_search" type="text" placeholder="Search For A Need" [(ngModel)]="inputStr">
+  <button class="primary" type="button" (click)="searchNeeds()">Search</button>
+</div>
+<div class="filters">
+  <section class="tag-filters">
+    <div *ngFor="let tag of tags">
+      <label>
+        <input
+          type="checkbox"
+          [value]="tag.id"
+          ng-model
+          (change)="onTagChange(tag.id, $event.target)">
+        {{ tag.name }}
+      </label>
+    </div>
+  </section>
+  <div class = "costs">
+    <label> Filter By Least Price: </label> <input type="number"  [(ngModel)]="lb">
+    <label> Filter By Greatest Price: </label> <input type="number"  [(ngModel)]="ub">
+  </div>
+</div>
+
+<div class="NeedsList">
+  <ul class="needs">
+    <li *ngFor="let need of needslist">
+      <a routerLink="/detail/{{need.id}}">
+        <span class="badge">{{need.id}}</span> {{need.name}}
+      </a>
+    </li>
+  </ul>
+</div>
+
+

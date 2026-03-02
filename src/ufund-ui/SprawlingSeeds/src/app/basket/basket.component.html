@@ -1,0 +1,28 @@
+<h2 class="Title" *ngIf="isValid()"> My Basket </h2>
+
+<section *ngIf="isValid()" class="checkout_container">
+<div class="my_basket">
+  <ul *ngIf="isValid" class="basket">
+    <li *ngFor="let n of basket?.needs">
+      <app-need-detail [need]="n"></app-need-detail>
+      <div class="buttons">
+        <button class="small_button" (click)="incrementNeed(n)">+</button>
+        <button (click)="decrementNeed(n)">-</button>
+        <button (click)="removeNeed(n)">X</button>
+      </div>
+    </li>
+  </ul> 
+</div>
+
+<div class="Amount">
+    <h3>Summary:</h3>
+    <li *ngFor="let n of basket?.needs">{{n.name}}: {{n.quantity}} - ${{n.cost}}</li>
+    <h3>Total: ${{ total }}</h3>
+    <button class="checkout_button" (click)="checkout()">Checkout</button>
+</div>
+</section>
+
+  <div *ngIf="errorMessage">
+    <p>{{errorMessage}}</p>
+  </div>
+

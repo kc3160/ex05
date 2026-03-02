@@ -1,0 +1,27 @@
+.need_detail{
+    background-color:#EADCC9;;
+    color:black;
+}
+
+.info{
+    display:flex;
+    flex-direction: column;
+}
+
+.need_title{
+    justify-content: center;
+    font-size:16px;
+}
+
+.Id{
+    justify-content: center;
+    font-size:10px;
+}
+
+.descriptor{
+    background-color:#EADCC9;;
+}
+
+.descriptor_txt{
+    font-size:20px;
+}

@@ -1,0 +1,4 @@
+<select (change)="changeTag($event.target)">
+    <option [value]="-1"></option>
+    <option *ngFor="let t of tags" [selected]="t.id == selected" [value]="t.id">{{t.name}}</option>
+</select>

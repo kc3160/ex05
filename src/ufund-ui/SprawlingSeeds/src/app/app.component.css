@@ -1,0 +1,90 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    background-color:transparent;
+}
+
+.Acc_type_iden{
+    color:white;
+    font-size:200px;
+}
+
+
+
+li, a, button {
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: 500;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+}
+
+.title{
+    font-family:'Times New Roman', Times, serif;
+    font-size:20px; 
+    padding:10px;
+    margin-left:0px;
+    align-self:flex-start;
+    color: white;
+    float:left;
+}
+
+.title .links button{
+    position:absolute;
+    align-items: center;
+}
+
+.links{
+    list-style: none;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    margin:0;
+    padding:0;
+}
+
+.links li{
+    display:inline-block;
+    padding: 0px 20px;
+}
+
+.links li a{
+    transition: all 0.3s ease;
+}
+
+.links li a:hover{
+    color: lightgreen;
+}
+
+header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding: 30px 10%;
+}
+
+button{
+    padding: 9px 25px;
+    background-color: green;
+    border:none;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover{
+    background-color:lightgreen;
+}
+
+.navbar{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    flex-grow:1;
+}
+
+
+
+
+

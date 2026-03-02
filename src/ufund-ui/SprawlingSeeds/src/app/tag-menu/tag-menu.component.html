@@ -1,0 +1,6 @@
+<input type="text" [(ngModel)]="newName" [value]="newName" ><button (click)="addTag(newName!)">Add Tag</button>
+<ul>
+    <li *ngFor="let t of tags; trackBy: trackTag">
+        <app-tag [tag]="t" (deleteTag)="deleteTag($event)"></app-tag>
+    </li>
+</ul>

@@ -1,0 +1,36 @@
+<div class="container">
+<header>
+<a><h1 class="title">{{title}}</h1></a>
+<nav class="navbar">
+  <ul class = "links">
+    <li><a routerLink="/homepage">Home<br></a></li>
+    <li><a routerLink="/needs">Needs<br></a></li>
+    <li><a routerLink="/search">Search<br></a></li>
+    <li><a *ngIf="toggleBasket()" routerLink="/basket">My Basket<br></a></li> 
+  </ul>
+</nav>
+  <ng-container class="Acc_type_iden" *ngIf="userService.sessionId != undefined">
+    <label *ngIf="userService.isAdmin; else helperview"><strong>Admin</strong></label>
+    <ng-template #helperview>
+        <label><strong>Helper</strong></label>
+    </ng-template>
+  </ng-container><br>
+  <a *ngIf="isLoggedIn()" routerLink="/login-manager"><button >Login</button><br></a>
+  <a *ngIf="isNotLoggedIn()"><button (click)="toggle_logged_in()">Logout</button><br></a>
+</header>
+<!--<body>
+  <div *ngIf="isDivVisible" [ngStyle]="{display : isDivVisible ? 'block' : 'none', overflow: isDivVisible ? 'visible' : 'hidden'}" class="landing_container">
+
+    <p class="about_us_par">
+      Change Starts With You
+    </p>
+
+    <a class="register" (click)="DivOff()" routerLink="/login-manager">Join Today<br></a>
+  </div>
+
+</body>-->
+
+<router-outlet></router-outlet>
+<!--<app-logout-button></app-logout-button>-->
+<!-- <app-messages></app-messages> -->
+</div>

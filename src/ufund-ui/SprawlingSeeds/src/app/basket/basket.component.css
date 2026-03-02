@@ -1,0 +1,55 @@
+h2{
+    color:white;
+}
+
+.Title{
+    display:flex;
+    justify-content: center;
+}
+
+.my_basket{
+    background-color:#EADCC9;
+    float:left;
+    width:70%;
+
+}
+
+.buttons{
+    display:flex;
+    flex-direction:row;
+    gap:5px;
+    font-size:5px;
+}
+
+.checkout_button{
+    width:150px;
+    justify-content: center;
+    padding: 9px 25px;
+    background-color: green;
+    border:none;
+    border-radius: 50px;
+    cursor:pointer;
+    transition: all 0.3s ease;
+}
+
+.checkout_button:hover{
+    background-color:lightgreen;
+}
+
+.Amount{
+    margin-left:10px;
+    background-color: #EADCC9;
+    display:flex;
+    flex-direction: column;
+    margin-top:10px;
+
+    width: 35%;
+
+}
+
+.checkout_container{
+    display:flex;
+    justify-content: space-between;
+    gap:20px;
+    margin-top:50px;
+}
