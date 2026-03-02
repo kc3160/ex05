@@ -1,0 +1,14 @@
+FROM node:latest AS builder
+WORKDIR /app
+
+COPY src/ufund-ui/SprawlingSeeds/ .
+
+RUN npm install
+RUN npm run build
+
+FROM nginx:alpine
+RUN rm -rf /usr/share/nginx/html/*
+COPY --from=builder /app/dist/sprawling-seeds/browser /usr/share/nginx/html
+RUN mv /usr/share/nginx/html/index.csr.html /usr/share/nginx/html/index.html
+
+EXPOSE 80

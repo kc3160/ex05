@@ -11,6 +11,7 @@ import { AppComponent } from './app.component';
 import { HomepageComponent } from './homepage/homepage.component';
 
 const routes: Routes = [
+  { path: '', redirectTo: '/homepage', pathMatch: 'full' },
   {path:'detail/:id', component: NeedDetailComponent},
   {path: 'home', component: HomepageComponent},
   {path: 'homepage', component: HomepageComponent},

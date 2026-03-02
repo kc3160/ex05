@@ -1,1 +1,1 @@
-[{"type":"admin","name":"admin","email":"a@a","password":"1234"}]
+[{"type":"admin","name":"admin","email":"a@a","password":"1234"},{"type":"helper","name":"1","email":"3@a","password":"1233","basketId":1},{"type":"helper","name":"2a","email":"2a@2a","password":"2a","basketId":2}]
